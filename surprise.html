@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Birthday Surprise — Open Gift</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="surpriseApp" class="surprise-app">
+    <!-- Scene: Welcome -->
+    <section id="sceneWelcome" class="scene card">
+      <div class="type-lines">
+        <div class="line" data-text="Annyeonghaseyo..."></div>
+        <div class="line" data-text="Before anything else... Try that freak calculator! HAHAHA"></div>
+      </div>
+      <button id="startBtn" class="enter-btn">Proceed 💖</button>
+      <div class="mini-calculator">
+        <p class="calculator-text">Try this fun calculator — it has a little surprise inside.</p>
+        <div class="calc-display" id="calcDisplay">0</div>
+        <div class="calc-buttons">
+          <button class="calc-btn" data-value="7">7</button>
+          <button class="calc-btn" data-value="8">8</button>
+          <button class="calc-btn" data-value="9">9</button>
+          <button class="calc-btn op" data-value="/">÷</button>
+          <button class="calc-btn" data-value="4">4</button>
+          <button class="calc-btn" data-value="5">5</button>
+          <button class="calc-btn" data-value="6">6</button>
+          <button class="calc-btn op" data-value="*">×</button>
+          <button class="calc-btn" data-value="1">1</button>
+          <button class="calc-btn" data-value="2">2</button>
+          <button class="calc-btn" data-value="3">3</button>
+          <button class="calc-btn op" data-value="-">−</button>
+          <button class="calc-btn clear" data-value="C">C</button>
+          <button class="calc-btn" data-value="0">0</button>
+          <button class="calc-btn equals" data-value="=">=</button>
+          <button class="calc-btn op" data-value="+">+</button>
+        </div>
+        <div id="calcHint" class="calc-hint">This calculator is magic — it always shows text instead of a normal answer. try every operator to see the surprise!</div>
+        <div class="calc-history-block">
+          <h3 class="calc-history-title">Calculator history</h3>
+          <div id="calcHistory" class="calc-history-list">No calculations yet.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scene: Cake -->
+    <section id="sceneCake" class="scene card" hidden>
+      <div class="cake-heading">
+        <h1>Happy Birthday, Shairmen!</h1>
+        <p class="subtitle">Make a birthday wish... utro pag wish kay mas maupay ini kay mayda na music unlike kanina waray... ✨</p>
+      </div>
+      <img src="removedBG.png" alt="Birthday Cake" class="cake" id="cakeImg">
+      <button id="cakeContinueBtn" class="enter-btn" hidden>Ready to Pop Balloons 🎈</button>
+    </section>
+
+    <!-- Scene: Balloons -->
+    <section id="sceneBalloons" class="scene card" hidden>
+      <h2>Pop the balloons to unlock your surprise 🎈</h2>
+      <div id="balloonCounter" class="counter">0 / <span id="balloonTarget">8</span></div>
+      <div id="balloons" class="balloon-stage" aria-live="polite"></div>
+    </section>
+
+    <!-- Scene: Photo Reveal -->
+    <section id="scenePhoto" class="scene card" hidden>
+      <h2>✨ Surprise Unlocked ✨</h2>
+      <p class="subtitle">Here's a little something I hope will make you smile. Because you were smiling when we took a photo together! HAHAHA sorry gudla amo la ini tak picture😭, kurti ko dida , piro no choice e HAHAHA</p>
+      <img id="specialPhoto" src="us.png" alt="Our Photo Together" class="photo">
+      <button id="photoContinueBtn" class="enter-btn" hidden>See Your Message 💌</button>
+    </section>
+
+    <!-- Scene: Typewriter + Memory -->
+    <section id="sceneMessage" class="scene card" hidden>
+      <h2>✨ A message for you</h2>
+      <div id="typewriter" class="typewriter" aria-live="polite"></div>
+      <div id="memoryCard" class="memory-card" hidden>
+        <h2>💖 A Little Memory</h2>
+        <p>Thank you for every laugh,<br>every conversation,<br>and every memory we've shared.</p>
+      </div>
+      <button id="continueBtn" class="enter-btn" hidden>Continue</button>
+    </section>
+
+    <!-- Scene: Finale -->
+    <section id="sceneFinale" class="scene card" hidden>
+      <h1>🎉AGAIN HAPPY BIRTHDAY 🎉</h1>
+      <p>May all your wishes come true.<br>Thank you for visiting this little surprise.<br><strong>💖 Glenn</strong></p>
+      <button id="replayBtn" class="enter-btn">Replay Surprise</button>
+    </section>
+  </div>
+
+  <audio id="music" preload="auto">
+    <source src="happybirthday.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="index.js" defer></script>
+</body>
+</html>

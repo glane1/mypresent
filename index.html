@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>🎂 A Special Birthday Surprise 🎂</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main class="container">
+    <section class="hero card" aria-labelledby="hero-title">
+      <h1 id="hero-title" class="title" aria-live="polite">🎂 A Special Birthday Surprise 🎂</h1>
+      <button id="greetBtn" class="enter-btn" aria-label="Start challenge">Tap Me ✨</button>
+      <div class="decor">
+        <div id="sparkles" aria-hidden="true"></div>
+        <div id="hearts" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="journey card" aria-labelledby="journey-title">
+      <h2 id="journey-title">Your birthday journey</h2>
+      <div class="journey-steps">
+        <article class="journey-step">
+          <span class="step-mark">1</span>
+          <h3>Make a wish</h3>
+          <p>Write a wish, dream, or memory that makes today special.</p>
+        </article>
+        <article class="journey-step">
+          <span class="step-mark">2</span>
+          <h3>Watch the countdown</h3>
+          <p>Every second brings your surprise closer to the next page.</p>
+        </article>
+        <article class="journey-step">
+          <span class="step-mark">3</span>
+          <h3>Open your gift</h3>
+          <p>When the timer finishes, unlock the surprise on the next screen.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="wish" class="card" aria-labelledby="wish-title">
+      <h2 id="wish-title">Make a Wish 💫</h2>
+      <p class="subtitle">Tell me what you wish for — I'll keep it safe. Want, dream, or memory is welcome.</p>
+      <div class="wish-hint">If you need inspiration, try wishing for something that makes us smile together. diba kapal ko HAHAHA</div>
+      <div id="wishBox">
+        <textarea id="wishInput" class="text-input" placeholder="Type your wish here..." rows="4"
+          aria-label="Your wish"></textarea>
+        <div class="controls"><button id="wishSubmit" class="nav-btn">Send Wish</button></div>
+        <div id="wishMessage" aria-live="polite" style="margin-top:10px;color:var(--accent-strong)"></div>
+        <div id="wishReview" class="wish-review" hidden aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="countdownCard" class="card" aria-labelledby="countdown-title">
+      <h2 id="countdown-title">Countdown to Your Birthday ⏳</h2>
+      <p id="countdownStatus" class="countdown-status" aria-live="polite">Counting down to your birthday surprise. The
+        gift will open when the timer reaches zero.</p>
+      <div class="progress-container">
+        <div id="progressBar"></div>
+      </div>
+      <div id="countdown" class="countdown-grid" role="timer" aria-live="polite">
+        <div class="countdown-item">
+          <div class="count value" id="days">0</div>
+          <div class="label">Days</div>
+        </div>
+        <div class="countdown-item">
+          <div class="count value" id="hours">0</div>
+          <div class="label">Hours</div>
+        </div>
+        <div class="countdown-item">
+          <div class="count value" id="minutes">0</div>
+          <div class="label">Minutes</div>
+        </div>
+        <div class="countdown-item">
+          <div class="count value" id="seconds">0</div>
+          <div class="label">Seconds</div>
+        </div>
+      </div>
+      <div id="afterCountdown" class="after-countdown" hidden>
+        <h3>🎁 Your Surprise Is Ready</h3>
+        <p class="countdown-teaser">When the clock stops, tap the button to open your gift.</p>
+        <button id="openGift" class="glow open-btn">Open My Gift 💖</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+  <script src="index.js" defer></script>
+</body>
+
+</html>
