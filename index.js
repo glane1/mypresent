@@ -135,7 +135,7 @@ function initCountdown(){
 	const nowDate = new Date();
 	const birthMonth = 5; // May (0-indexed)
 	const birthDay = 5;
-	const birthHour = 18, birthMin = 3, birthSec = 10;
+	const birthHour = 18, birthMin = 7, birthSec = 10;
 	let targetDate = new Date(nowDate.getFullYear(), birthMonth, birthDay, birthHour, birthMin, birthSec);
 	if (targetDate.getTime() <= nowDate.getTime()) {
 		targetDate = new Date(nowDate.getFullYear() + 1, birthMonth, birthDay, birthHour, birthMin, birthSec);
