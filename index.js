@@ -131,8 +131,8 @@ function startFloatingHearts(){
 function initCountdown(){
 	const nowDate = new Date();
 	const birthMonth = 5; // June (0-indexed)
-	const birthDay = 5;
-	const birthHour = 18, birthMin = 39, birthSec = 10;
+	const birthDay = 6;
+	const birthHour = 00, birthMin = 00, birthSec = 01;
 	const birthdayThisYear = new Date(nowDate.getFullYear(), birthMonth, birthDay, birthHour, birthMin, birthSec);
 	const target = birthdayThisYear.getTime();
 	const daysEl = document.getElementById('days'), hoursEl = document.getElementById('hours'), minutesEl = document.getElementById('minutes'), secondsEl = document.getElementById('seconds');
