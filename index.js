@@ -129,38 +129,47 @@ function startFloatingHearts(){
 }
 
 function initCountdown(){
-	// Compute next occurrence of the birthday so countdown never p
-	// oints to a past date
-	// Birthday: May 31 at 10:49:20 (adjust time if you want)
 	const nowDate = new Date();
-	const birthMonth = 5; // May (0-indexed)
+	const birthMonth = 5; // June (0-indexed)
 	const birthDay = 5;
-	const birthHour = 18, birthMin = 20, birthSec = 10;
-	let targetDate = new Date(nowDate.getFullYear(), birthMonth, birthDay, birthHour, birthMin, birthSec);
-	if (targetDate.getTime() <= nowDate.getTime()) {
-		targetDate = new Date(nowDate.getFullYear() + 1, birthMonth, birthDay, birthHour, birthMin, birthSec);
-	}
-	const target = targetDate.getTime();
+	const birthHour = 18, birthMin = 39, birthSec = 10;
+	const birthdayThisYear = new Date(nowDate.getFullYear(), birthMonth, birthDay, birthHour, birthMin, birthSec);
+	const target = birthdayThisYear.getTime();
 	const daysEl = document.getElementById('days'), hoursEl = document.getElementById('hours'), minutesEl = document.getElementById('minutes'), secondsEl = document.getElementById('seconds');
 	const countdownStatus = document.getElementById('countdownStatus');
 	const progressBar = document.getElementById('progressBar');
 	const after = document.getElementById('afterCountdown');
+	const countdownEl = document.getElementById('countdown');
 	const openBtn = document.getElementById('openGift');
-	const start = nowDate.getTime();
-	const totalDuration = target - start;
+	const now = nowDate.getTime();
 
 	if (openBtn){
 		openBtn.addEventListener('click', ()=> window.location.href = 'surprise.html');
 	}
 
+	const showReadyState = ()=>{
+		if (countdownEl) countdownEl.style.display = 'none';
+		if (countdownStatus) countdownStatus.textContent = 'Your birthday surprise is ready — open your gift anytime.';
+		if (after) after.hidden = false;
+		if (progressBar) progressBar.style.width = '100%';
+	};
+
+	if (now >= target){
+		showReadyState();
+		return;
+	}
+
+	const start = now;
+	const totalDuration = target - start;
+
 	const tick = ()=>{
-		const now = Date.now(); const diff = target - now;
-		if (diff <= 0){ clearInterval(interval); // reveal
-			document.getElementById('countdown').style.display = 'none';
-			if (countdownStatus) countdownStatus.textContent = 'It’s time — open your gift now!';
-			after.hidden = false;
-			if (progressBar) progressBar.style.width = '100%';
-			return; }
+		const current = Date.now();
+		const diff = target - current;
+		if (diff <= 0){
+			clearInterval(interval);
+			showReadyState();
+			return;
+		}
 		const days = Math.floor(diff / (1000*60*60*24));
 		const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
 		const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
